@@ -37,7 +37,7 @@ class forumtopicwatch_module
 				LEFT JOIN ' . (($fts) ? FORUMS_TABLE : TOPICS_TABLE) . ' f ON ('.(($fts) ? 'f.forum_id = w.forum_id' : 'f.topic_id = w.topic_id') . ')
 				LEFT JOIN ' . USERS_TABLE . ' u ON (u.user_id = w.user_id) 
 				GROUP BY w.user_id ORDER BY u.username ASC';
-		
+
 		$result = $db->sql_query_limit($sql, $config['posts_per_page'], $start);
 		while ($row = $db->sql_fetchrow($result))
 		{

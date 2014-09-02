@@ -27,4 +27,3 @@ $lang = array_merge($lang, array(
 	'ACP_FORUM_TOPICWATCH'	=> 'Forum- TopicWatch',
 	'ACP_FORUM_TOPICWATCH_EXPLAIN'	=> 'Watch your users and their subscribed forums / topics. Switch between forums or topics to see different results.',
 ));
-
