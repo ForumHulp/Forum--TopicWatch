@@ -7,9 +7,9 @@
 *
 */
 
-namespace forumhulp\forum_topicwatch\acp;
+namespace forumhulp\forumtopicwatch\acp;
 
-class forum_topicwatch_module
+class forumtopicwatch_module
 {
 	var $u_action;
 
@@ -20,18 +20,18 @@ class forum_topicwatch_module
 
 		$start		= request_var('start', 0);
 		$fts		= request_var('ft', 1);
-		
+
 		$sql = 'SELECT COUNT(DISTINCT user_id) AS total_users FROM ' . (($fts) ? FORUMS_WATCH_TABLE : TOPICS_WATCH_TABLE);
 		$result = $db->sql_query($sql);
 		$total_users =  (int) $db->sql_fetchfield('total_users');
 		$db->sql_freeresult($result);
-		
+
 		$config['posts_per_page'] = 10;
 		if ($start < 0 || $start >= $total_users)
 		{
 			$start = ($start < 0) ? 0 : floor(($total_users - 1) / $config['posts_per_page']) * $config['posts_per_page'];
 		}
-		
+
 		$sql = 'SELECT w.*, GROUP_CONCAT(' . (($fts) ? 'f.forum_name' : 'f.topic_title') . ' ORDER BY ' . (($fts) ? 'f.forum_name' : 'f.topic_title') . ' SEPARATOR ", ") AS forums, u.username 
 				FROM ' . (($fts) ? FORUMS_WATCH_TABLE : TOPICS_WATCH_TABLE) . ' w
 				LEFT JOIN ' . (($fts) ? FORUMS_TABLE : TOPICS_TABLE) . ' f ON ('.(($fts) ? 'f.forum_id = w.forum_id' : 'f.topic_id = w.topic_id') . ')
@@ -47,21 +47,19 @@ class forum_topicwatch_module
 				)
 			);
 		}
-		
+
 		$pagination = $phpbb_container->get('pagination');
 		$base_url = $this->u_action . '&amp;ft=' . $fts;
 		$pagination->generate_template_pagination($base_url, 'pagination', 'start', $total_users, $config['posts_per_page'], $start);
-		
+
 		// Generate page
 		$template->assign_vars(array(
-			'S_ON_PAGE'	=> $pagination->on_page($base_url, $total_users, $config['posts_per_page'], $start),
+			'S_ON_PAGE'	=> ($total_users) ? $pagination->on_page($base_url, $total_users, $config['posts_per_page'], $start) : '',
 			'THISURL'	=> $this->u_action
 			)
 		);
-		
+
 		$this->tpl_name = 'acp_forum_topicwatch';
 		$this->page_title = 'ACP_FORUM_TOPICWATCH';
 	}
 }
-
-?>

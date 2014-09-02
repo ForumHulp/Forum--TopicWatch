@@ -1,5 +1,5 @@
 {
-    "name": "forumhulp/forum_topicwatch",
+    "name": "forumhulp/forumtopicwatch",
     "type": "phpbb-extension",
     "description": "Watch users and their subscribed forums / topics.",
     "homepage": "http://forumhulp.com/",

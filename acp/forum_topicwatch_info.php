@@ -11,20 +11,19 @@
 * @package module_install
 */
 
-namespace forumhulp\forum_topicwatch\acp;
+namespace forumhulp\forumtopicwatch\acp;
 
-class forum_topicwatch_info
+class forumtopicwatch_info
 {
 	function module()
 	{
 		return array(
-			'filename'	=> '\forumhulp\forum_topicwatch\acp\forum_topicwatch_module',
+			'filename'	=> '\forumhulp\forumtopicwatch\acp\forum_topicwatch_module',
 			'title'		=> 'ACP_FORUM_TOPICWATCH',
 			'version'	=> '3.1.0',
-            'modes'     => array('index' => array('title' => 'ACP_FORUM_TOPICWATCH', 'auth' => 'acl_a_board', 'cat' => array('ACP_FORUM_LOGS')),
+			'modes'     => array('index' => array('title' => 'ACP_FORUM_TOPICWATCH', 'auth' => 'acl_a_board', 'cat' => array('ACP_FORUM_LOGS')),
 			),
 		);
 	}
 }
 
-?>

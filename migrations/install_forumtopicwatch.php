@@ -7,9 +7,9 @@
 *
 */
 
-namespace forumhulp\forum_topicwatch\migrations;
+namespace forumhulp\forumtopicwatch\migrations;
 
-class install_forum_topicwatch extends \phpbb\db\migration\migration
+class install_forumtopicwatch extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
@@ -28,7 +28,7 @@ class install_forum_topicwatch extends \phpbb\db\migration\migration
 				'acp',
 				'ACP_FORUM_LOGS',
 				array(
-					'module_basename'	=> '\forumhulp\forum_topicwatch\acp\forum_topicwatch_module',
+					'module_basename'	=> '\forumhulp\forumtopicwatch\acp\forum_topicwatch_module',
 					'module_langname'	=> 'ACP_FORUM_TOPICWATCH',
 					'module_mode'		=> 'index'
 				)

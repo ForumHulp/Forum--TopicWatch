@@ -7,7 +7,7 @@
 *
 */
 
-namespace forumhulp\forum_topicwatch;
+namespace forumhulp\forumtopicwatch;
 
 /**
 * Main extension class for this extension.
