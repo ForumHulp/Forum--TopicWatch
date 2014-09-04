@@ -28,7 +28,7 @@ class install_forumtopicwatch extends \phpbb\db\migration\migration
 				'acp',
 				'ACP_FORUM_LOGS',
 				array(
-					'module_basename'	=> '\forumhulp\forumtopicwatch\acp\forum_topicwatch_module',
+					'module_basename'	=> '\forumhulp\forumtopicwatch\acp\forumtopicwatch_module',
 					'module_langname'	=> 'ACP_FORUM_TOPICWATCH',
 					'module_mode'		=> 'index'
 				)
