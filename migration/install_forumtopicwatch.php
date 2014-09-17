@@ -7,13 +7,13 @@
 *
 */
 
-namespace forumhulp\forumtopicwatch\migrations;
+namespace forumhulp\forumtopicwatch\migration;
 
 class install_forumtopicwatch extends \phpbb\db\migration\migration
 {
 	public function effectively_installed()
 	{
-		return isset($this->config['forum_topicwatch_version']) && version_compare($this->config['forum_topicwatch_version'], '3.1.0', '>=');
+		return isset($this->config['forum_topicwatch_version']) && version_compare($this->config['forum_topicwatch_version'], '3.1.0.RC4', '>=');
 	}
 
 	static public function depends_on()
@@ -34,7 +34,7 @@ class install_forumtopicwatch extends \phpbb\db\migration\migration
 				)
 			)),
 
-			array('config.add', array('forum_topicwatch_version', '3.1.0')),
+			array('config.add', array('forum_topicwatch_version', '3.1.0.RC4')),
 		);
 	}
 }
