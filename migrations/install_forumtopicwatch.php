@@ -7,7 +7,7 @@
 *
 */
 
-namespace forumhulp\forumtopicwatch\migration;
+namespace forumhulp\forumtopicwatch\migrations;
 
 class install_forumtopicwatch extends \phpbb\db\migration\migration
 {
