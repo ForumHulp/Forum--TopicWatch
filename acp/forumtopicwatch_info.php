@@ -21,7 +21,7 @@ class forumtopicwatch_info
 			'filename'	=> '\forumhulp\forumtopicwatch\acp\forumtopicwatch_module',
 			'title'		=> 'ACP_FORUM_TOPICWATCH',
 			'version'	=> '3.1.0',
-			'modes'     => array('index' => array('title' => 'ACP_FORUM_TOPICWATCH', 'auth' => 'acl_a_board', 'cat' => array('ACP_FORUM_LOGS')),
+			'modes'     => array('index' => array('title' => 'ACP_FORUM_TOPICWATCH', 'auth' => 'ext_forumhulp/forumtopicwatch && acl_a_board', 'cat' => array('ACP_FORUM_LOGS')),
 			),
 		);
 	}
