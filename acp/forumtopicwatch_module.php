@@ -41,7 +41,7 @@ class forumtopicwatch_module
 					$start = ($start < 0) ? 0 : floor(($total_users - 1) / $config['posts_per_page']) * $config['posts_per_page'];
 				}
 
-				$sql = 'SELECT w.*, GROUP_CONCAT(' . (($fts) ? 'f.forum_name' : 'f.topic_title') . ' ORDER BY ' . (($fts) ? 'f.forum_name' : 
+				$sql = 'SELECT w.*, GROUP_CONCAT(' . (($fts) ? 'f.forum_name' : 'f.topic_title') . ' ORDER BY ' . (($fts) ? 'f.forum_name' :
 						'f.topic_title') . ' SEPARATOR ", ") AS forums, u.username 
 						FROM ' . (($fts) ? FORUMS_WATCH_TABLE : TOPICS_WATCH_TABLE) . ' w
 						LEFT JOIN ' . (($fts) ? FORUMS_TABLE : TOPICS_TABLE) . ' f ON ('.(($fts) ? 'f.forum_id = w.forum_id' : 'f.topic_id = w.topic_id') . ')
