@@ -35,6 +35,16 @@ class forumtopicwatch_module
 				$total_users =  (int) $db->sql_fetchfield('total_users');
 				$db->sql_freeresult($result);
 
+				if (!$total_users)
+				{
+					$sql = 'SELECT COUNT(DISTINCT user_id) AS total_users FROM ' . (($fts) ? TOPICS_WATCH_TABLE : FORUMS_WATCH_TABLE);
+					$result = $db->sql_query($sql);
+					$total_users =  (int) $db->sql_fetchfield('total_users');
+					$db->sql_freeresult($result);
+
+					$fts = ($total_users) ? 0 : 1;
+				}
+
 				$config['posts_per_page'] = 10;
 				if ($start < 0 || $start >= $total_users)
 				{
@@ -64,7 +74,7 @@ class forumtopicwatch_module
 
 				// Generate page
 				$template->assign_vars(array(
-					'S_ON_PAGE'		=> ($total_users) ? $pagination->on_page($base_url, $total_users, $config['posts_per_page'], $start) : '',
+					'S_ON_PAGE'		=> ($total_users) ? $pagination->on_page($total_users, $config['posts_per_page'], $start) : '',
 					'S_FT'			=> $fts,
 					'U_FORUMWATCH'	=> $this->u_action,
 					'U_TOPICWATCH'	=> str_replace('ft=1', 'ft=0' , (strpos('ft=0', $this->u_action) === false) ? $this->u_action . '&ft=0' : $this->u_action),

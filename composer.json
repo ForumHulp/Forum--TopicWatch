@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "Watch users and their subscribed forums / topics.",
     "homepage": "http://forumhulp.com/",
-    "version": "3.1.1",
+    "version": "3.1.2",
     "license": "GPL-2.0",
     "authors": [
         {
@@ -20,7 +20,7 @@
     "extra": {
         "display-name": "Forum- topicwatch",
 		"soft-require": {
-           "phpbb/phpbb": ">3.1.*@dev"
+           "phpbb/phpbb": ">3.2.*@dev"
         },
 		"version-check": {
 			"host": "forumhulp.com",
