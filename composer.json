@@ -24,8 +24,8 @@
         },
 		"version-check": {
 			"host": "forumhulp.com",
-			"directory": "/ext",
-			"filename": "index.php?id=20"
+			"directory": "/versioncheck",
+			"filename": "forum-topicwatch"
 		}
     }
 }
